@@ -1,0 +1,40 @@
+<main class="login-form">
+<div class="container ">
+    
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+            <div class="card" style="border-color: #337ab7;">
+                <div class="card-header" style="background-color: #337ab7;">Login</div>
+                <div class="card-body">
+                    <form class="form-horizontal" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                        <div calss="form-group row">
+                            <label for="name" class="col-md-6 col-form-label text-md-right">UserName</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" [(ngModel)]=login.userName #userName="ngModel"
+                                    name="userName" required autofocus>
+                            </div>
+                            <!-- <div *ngIf="userName.touched && !userName.valid" style="color: red;">This filed is required </div>-->
+
+                        </div>
+                        <!-- <div calss="form-group row">
+                            <label for="password" class="col-form-label">Password</label>
+
+                            <div>
+                                <input type="password" class="form-control" [(ngModel)]=login.password
+                                    #password="ngModel" name="password" required>
+                            </div>
+                            <div *ngIf="userName.touched && !userName.valid" style="color: red;">This filed is required
+                            </div>
+
+                        </div> -->
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</main>

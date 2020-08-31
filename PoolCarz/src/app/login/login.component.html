@@ -1,0 +1,47 @@
+<div class="container container-styles">
+    <div class="cols-xs-7 cols-xs-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Login</div>
+            <div class="panel-body padding">
+                <form class="form-horziontal" #loginForm="ngForm">
+                    <div class="form-group">
+                        <label for="name" class="col-xs-4  control-label" style="text-align:left">UserName</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" [(ngModel)]=login.userName #userName="ngModel"
+                                name="userName" required>
+                            <div *ngIf="userName.touched && !userName.valid" style="color:red">User Name is required
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="col-xs-4  control-label" style="text-align:left">Password</label>
+                        <div class="col-xs-8">
+                            <input type="password" class="form-control" name="password" [(ngModel)]=login.password
+                                #password="ngModel" required>
+                            <div *ngIf="password.touched && !password.valid" style="color:red">Password is required
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div *ngIf="!userValid" class="error text-center">Invalid credentials... Please try again</div>
+                    <br />
+    
+
+                    <div class="form-group">
+                        <span class="col-xs-4"></span>
+                        <div class="col-xs-3">
+                            <button (click)="onSubmit()" class="btn btn-primary"
+                                [disabled]="!loginForm.form.valid">Login</button>
+                        </div>
+                        <span class="col-xs-5" style="top:8px">
+                            <a type="cancel" style="color:#337ab7;text-decoration: underline;">Cancel</a>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

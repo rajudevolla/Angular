@@ -1,0 +1,35 @@
+<div class="container container-styles">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Ride Details</div>
+        <div class="panel-body padding">
+            <table class="table table-striped table-bordered table-condensed" align="center">
+                <thead>
+                    <th><b>Id</b></th>
+                    <th><b>Name</b></th>
+                    <th><b>Car</b></th>
+                    <th><b>Seats Left</b></th>
+                    <th><b>Pick-up Point</b></th>
+                    <th><b>Desitnation</b></th>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let ride of rides">
+                        <td>{{ride.id}}</td>
+                        <td>{{ride.name}}</td>
+                        <td>{{ride.car}}</td>
+                        <td>{{ride.seatsLeft}}</td>
+                        <td>{{ride.pickUp}}</td>
+                        <td>{{ride.destination}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <span class="cols-xs-2"></span>
+            <div class="cols-xs-3">
+                <p *ngIf="isBookingDone">Booking done. Your booking id: 101</p>
+                <button id="book" type="button" class="btn btn-primary" (click)="onBookClick()" appBookride>Book!</button>
+            </div>
+
+        </div>
+    </div>
+</div>

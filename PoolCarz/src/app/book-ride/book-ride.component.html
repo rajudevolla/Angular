@@ -1,0 +1,64 @@
+<div class="container container-styles">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Book a Ride</div>
+        <div class="panel-body padding">
+            <p>
+                Pool Carz is an online application wihch enable users to share rides with others. You can either book a
+                ride or offer a ride.
+                Did we mention that this app is advertisemeent free? To add on top of that its free of cost! So what are
+                you waiting for ? Check out the rides available and start PCing!!
+            </p>
+            <br />
+            <span class="col-xs-4"></span>
+            <div class="col-xs-3" *ngIf=!isShowall>
+                <button (click)="showRides()" class="btn btn-primary" style="text-align: center;">Show all
+                    Rides</button>
+            </div>
+            <div class="container container-styles" *ngIf=isShowall>
+                <div class="row">
+                    <!-- <span class="col-xs-3"></span> -->
+                    <div class="col-xs-2"><button (click)="showRides()" class="btn btn-primary"
+                            style="text-align: center;">Show allRides</button></div>
+                    <div class="col-xs-2"><button (click)="filterToOffice()" class="btn btn-primary"
+                            style="text-align:center;">To Office</button></div>
+                    <div class="col-xs-2"><button (click)="filterFromOffice()" class="btn btn-primary"
+                            style="text-align:center;">From Office</button></div>
+                    <div class="col-xs-2"><button (click)="filterOthers()" class="btn btn-primary"
+                            style="text-align:center;">Others</button></div>
+                </div>
+
+            </div>
+
+
+            <br />
+            <div *ngIf=isShowall>
+                <table class="table table-striped table-bordered table-condensed" style="text-align: center;"
+                    align="center">
+                    <thead style="background-color:#337ab7;color: white;">
+                        <tr style="text-align: center">
+                            <th>Start Point</th>
+                            <th>End Point</th>
+                            <th>Seats Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ride of rides |rideFilterPipe:filter" appMouseMouseHoverDirective
+                            (click)="showrideDetails(ride)">
+                            <td>{{ride.pickUp}}</td>
+                            <td>{{ride.destination}}</td>
+                            <td>{{ride.seatsLeft}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="showrideDetails">
+                <app-ride-details-component (onBook)="onBook($event)"  [rideID]="selectedRowID"></app-ride-details-component>
+            </div>
+            <span class="col-xs-4"></span>
+            <div class="col-xs-3">
+                
+                <a class="btn btn-primary" [routerLink]="['/offer-ride']" >Offer ride!</a>
+            </div>
+        </div>
+    </div>
+</div>
